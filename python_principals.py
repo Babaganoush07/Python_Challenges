@@ -34,3 +34,25 @@ def mid(string):
 
 print(mid("abc"))
 print(mid("aaaa"))
+
+'''
+Online status
+The aim of this challenge is, given a dictionary of people's online status, to count the number of people who are online.
+Write a function named online_count that takes one parameter.
+The parameter is a dictionary that maps from strings of names to the string "online" or "offline".
+Your function should return the number of people who are online.
+'''
+def online_count(dictionary):
+    online = 0
+    for name, status in dictionary.items():
+        if status == "online":
+            online += 1
+    return online
+    
+statuses = {
+    "Alice": "online",
+    "Bob": "offline",
+    "Eve": "online",
+}
+
+print(online_count(statuses))
