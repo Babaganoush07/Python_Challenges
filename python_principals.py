@@ -148,3 +148,100 @@ def is_anagram(string1, string2):
 
 print(is_anagram("typhoon", "opython"))
 print(is_anagram("Alice", "Bob"))
+
+'''
+Flatten a list
+Write a function that takes a list of lists and flattens it into a one-dimensional list.
+Name your function flatten. It should take a single parameter and return a list.
+
+For example, calling:flatten([[1, 2], [3, 4]])
+Should return the list: [1, 2, 3, 4]
+'''
+def flatten(lst):
+    result = []
+    for each in lst:
+        result += each
+    return result
+
+print(flatten([[1, 2], [3, 4]]))
+
+'''
+Min-maxing
+Define a function named largest_difference that takes a list of numbers as its only parameter.
+
+Your function should compute and return the difference between the largest and smallest number in the list.
+
+For example, the call largest_difference([1, 2, 3]) should return 2 because 3 - 1 is 2.
+
+You may assume that no numbers are smaller or larger than -100 and 100.
+'''
+def largest_difference(num_list):
+    return max(num_list) - min(num_list)
+print(largest_difference([1, 2, 3]))
+
+'''
+Divisible by 3
+Define a function named div_3 that returns True if its single integer parameter is divisible by 3 and False otherwise.
+
+For example, div_3(6) is True because 6/3 does not leave any remainder. However div_3(5) is False because 5/3 leaves 2 as a remainder.
+'''
+def div_3(num):
+    return num % 3 == 0
+
+print(div_3(6))
+
+'''
+Tic tac toe input
+Here's the backstory for this challenge: imagine you're writing a tic-tac-toe game, where the board looks like this:
+
+1:  X | O | X
+   -----------
+2:    |   |  
+   -----------
+3:  O |   |
+
+    A   B  C
+The board is represented as a 2D list:
+
+board = [
+    ["X", "O", "X"],
+    [" ", " ", " "],
+    ["O", " ", " "],
+]
+Imagine if your user enters "C1" and you need to see if there's an X or O in that cell on the board. To do so, you need to translate from the string "C1" to row 0 and column 2 so that you can check board[row][column].
+
+Your task is to write a function that can translate from strings of length 2 to a tuple (row, column). Name your function get_row_col; it should take a single parameter which is a string of length 2 consisting of an uppercase letter and a digit.
+
+For example, calling get_row_col("A3") should return the tuple (2, 0) because A3 corresponds to the row at index 2 and column at index 0in the board.
+'''
+def get_row_col(choice):
+    translate = {"A": 0, "B": 1, "C": 2}
+    letter = choice[0]
+    number = choice[1]
+    row = int(number) - 1
+    column = translate[letter]
+    return (row, column)
+print(get_row_col("C1"))
+
+'''
+Palindrome
+A string is a palindrome when it is the same when read backwards.
+
+For example, the string "bob" is a palindrome. So is "abba". But the string "abcd" is not a palindrome, because "abcd" != "dcba".
+
+Write a function named palindrome that takes a single string as its parameter. Your function should return True if the string is a palindrome, and False otherwise.
+'''
+def palindrome(string):
+    return string == string[::-1]
+print(palindrome("Hello"))
+
+'''
+Up and down
+Define a function named up_down that takes a single number as its parameter. Your function return a tuple containing two numbers; the first should be one lower than the parameter, and the second should be one higher.
+
+For example, calling up_down(5) should return (4, 6).
+'''
+def up_down(num):
+    return (num-1, num+1)
+print(up_down(5))
+
