@@ -12,7 +12,6 @@
 
 ## General Information
 - A collection of challenges from [Python Pricipals](https://pythonprinciples.com/)
-- I'm trying to do a few a week.
 - The purpose is to try improve and maintain my knowledge.
 
 
