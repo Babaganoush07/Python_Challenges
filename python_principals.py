@@ -17,8 +17,6 @@ def capital_indexes(string):
         if letter[1].isupper():
             lst.append(letter[0])
     return lst
-    
-print(capital_indexes("HeLlO"))
 
 '''
 Middle letter
@@ -33,9 +31,6 @@ def mid(string):
     if len(string) % 2 == 0:
         return ""
     return string[len(string)//2]
-
-print(mid("abc"))
-print(mid("aaaa"))
 
 '''
 Online status
@@ -58,8 +53,6 @@ statuses = {
     "Eve": "online",
 }
 
-print(online_count(statuses))
-
 '''
 Randomness
 Difficulty 2/10
@@ -73,8 +66,6 @@ import random
 
 def random_number():
     return random.randint(1,100)
-    
-print(random_number())
 
 '''
 Type check
@@ -86,8 +77,6 @@ For example, calling only_ints(1, 2) should return True, while calling only_ints
 '''
 def only_ints(a,b):
     return type(a) == int and type(b) == int
- 
-print(only_ints(1,'a'))
 
 '''
 Double letters
@@ -106,8 +95,6 @@ def double_letters(string):
             return True
     return False
 
-print(double_letters("hello"))
-
 '''
 Adding and removing dots
 Difficulty 3/10
@@ -123,8 +110,6 @@ def add_dots(string):
 
 def remove_dots(string):
     return string.replace(".", "")
-    
-print(remove_dots(add_dots('string')))
 
 '''
 Counting syllables
@@ -141,8 +126,6 @@ Your function should count the number of syllables and return it.
 def count(string):
     return string.count("-") + 1
 
-print(count("ho-tel"))
-
 '''
 Anagrams
 Difficulty 3/10
@@ -154,9 +137,6 @@ For example, the call is_anagram("typhoon", "opython") should return True while 
 '''
 def is_anagram(string1, string2):
     return sorted(string1) == sorted(string2)
-
-print(is_anagram("typhoon", "opython"))
-print(is_anagram("Alice", "Bob"))
 
 '''
 Flatten a list
@@ -173,8 +153,6 @@ def flatten(lst):
         result += each
     return result
 
-print(flatten([[1, 2], [3, 4]]))
-
 '''
 Min-maxing
 Difficulty 3/10
@@ -186,7 +164,6 @@ You may assume that no numbers are smaller or larger than -100 and 100.
 '''
 def largest_difference(num_list):
     return max(num_list) - min(num_list)
-print(largest_difference([1, 2, 3]))
 
 '''
 Divisible by 3
@@ -197,8 +174,6 @@ For example, div_3(6) is True because 6/3 does not leave any remainder. However 
 '''
 def div_3(num):
     return num % 3 == 0
-
-print(div_3(6))
 
 '''
 Tic tac toe input
@@ -234,7 +209,6 @@ def get_row_col(choice):
     row = int(number) - 1
     column = translate[letter]
     return (row, column)
-print(get_row_col("C1"))
 
 '''
 Palindrome
@@ -247,7 +221,6 @@ Your function should return True if the string is a palindrome, and False otherw
 '''
 def palindrome(string):
     return string == string[::-1]
-print(palindrome("Hello"))
 
 '''
 Up and down
@@ -260,4 +233,107 @@ For example, calling up_down(5) should return (4, 6).
 def up_down(num):
     return (num-1, num+1)
 print(up_down(5))
+
+'''
+Consecutive zeros
+Difficulty 4/10
+The goal of this challenge is to analyze a binary string consisting of only zeros and ones. Your code should find the biggest number of consecutive zeros in the string. For example, given the string:
+
+"1001101000110"
+The biggest number of consecutive zeros is 3.
+
+Define a function named consecutive_zeros that takes a single parameter, which is the string of zeros and ones. Your function should return the number described above.
+'''
+
+def consecutive_zeros(bin_str):
+    result = 0
+    streak = 0
+    for letter in bin_str:
+        if letter == "0":
+            streak += 1
+        else:
+            streak = 0
+        result = max(result, streak)
+    return result
+
+'''
+All equal
+Difficulty 4/10
+Define a function named all_equal that takes a list and checks whether all elements in the list are the same.
+
+For example, calling all_equal([1, 1, 1]) should return True.
+'''
+def all_equal(l):
+    for char in l:
+        if l[0] != char:
+            return False
+    return True
+
+'''
+Boolean and
+Difficulty 4/10
+Define a function named triple_and that takes three parameters and returns True only if they are all True and False otherwise.
+'''
+
+def triple_and(a, b, c):
+    return a and b and c
+
+'''
+Writing short code
+Difficulty 5/10
+Define a function named convert that takes a list of numbers as its only parameter and returns a list of each number converted to a string.
+
+For example, the call convert([1, 2, 3]) should return ["1", "2", "3"].
+
+What makes this tricky is that your function body must only contain a single line of code.
+'''
+def convert(lst):
+    return [ str(each) for each in lst ]
+
+'''
+Custom zip
+Difficulty 5/10
+Define a function named zap. 
+The function takes two parameters, a and b. These are lists.
+Your function should return a list of tuples. 
+Each tuple should contain one item from the a list and one from b.
+'''
+zaps = (
+    [0, 1, 2, 3],
+    [5, 6, 7, 8]
+)
+
+def zap(a,b):
+    zap_list = []
+    for i in range(len(a)):
+        zap_list.append((a[i], b[i]))
+    return zap_list
+
+'''
+Solution validation
+Difficulty 5/10
+The aim of this challenge is to write code that can analyze code submissions. We'll simplify things a lot to not make this too hard.
+
+Write a function named validate that takes code represented as a string as its only parameter.
+
+Your function should check a few things:
+
+the code must contain the def keyword
+otherwise return "missing def"
+the code must contain the : symbol
+otherwise return "missing :"
+the code must contain ( and ) for the parameter list
+otherwise return "missing paren"
+the code must not contain ()
+otherwise return "missing param"
+the code must contain four spaces for indentation
+otherwise return "missing indent"
+the code must contain validate
+otherwise return "wrong name"
+the code must contain a return statement
+otherwise return "missing return"
+If all these conditions are satisfied, your code should return True.
+
+Here comes the twist: your solution must return True when validating itself.
+'''
 
