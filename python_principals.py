@@ -375,3 +375,23 @@ def list_xor(n, list1, list2):
     if n in list1 and n in list2:
         return False
     return True
+
+'''
+Counting parameters
+Difficulty 5/10
+Define a function param_count that takes a variable number of parameters. 
+The function should return the number of arguments it was called with.
+
+For example, param_count() should return 0, while param_count(2, 3, 4) should return 3.
+'''
+def param_count(*args):
+    return len(args)
+
+'''
+Thousands separator
+Difficulty 7/10
+Write a function named format_number that takes a non-negative number as its only parameter.
+Your function should convert the number to a string and add commas as a thousands separator.
+
+For example, calling format_number(1000000) should return "1,000,000".
+'''
