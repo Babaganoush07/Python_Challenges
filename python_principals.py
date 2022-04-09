@@ -336,4 +336,37 @@ If all these conditions are satisfied, your code should return True.
 
 Here comes the twist: your solution must return True when validating itself.
 '''
+def validate(string):
+    if 'def' not in string:
+        return "missing def"
+    if ':' not in string:
+        return "missing :"
+    if '('+')' in string:
+        return "missing param"
+    if '(' not in string or ')' not in string:
+        return "missing paren"
+    if '    ' not in string:
+        return "missing indent"
+    if 'validate' not in string:
+        return "wrong name"
+    if 'return' not in string:
+        return "missing return"
+    return True
+
+'''
+List xor
+Difficulty 5/10
+Define a function named list_xor. 
+Your function should take three parameters: n, list1 and list2.
+Your function must return whether n is exclusively in list1 or list2.
+
+In other words, if n is in both lists or in none of the lists, return False. 
+If n is in only one of the lists, return True.
+
+For example:
+list_xor(1, [1, 2, 3], [4, 5, 6]) == True
+list_xor(1, [0, 2, 3], [1, 5, 6]) == True
+list_xor(1, [1, 2, 3], [1, 5, 6]) == False
+list_xor(1, [0, 0, 0], [4, 5, 6]) == False
+'''
 
